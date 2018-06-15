@@ -26,6 +26,33 @@ namespace Project2
             employeeBindingSource.DataSource = db.Employees.ToList();
             orderBindingSource.DataSource = db.Orders.ToList();
             orderDetailBindingSource.DataSource = db.Orders.ToList();
+            
+            //using (var dbContextTransaction = db.Database.BeginTransaction())
+            //{
+            //    try
+            //    {
+            //        db.Database.ExecuteSqlCommand(
+            //            @"UPDATE Employees SET City = 'New Yourk'" +
+            //                " WHERE City LIKE '%London%'"
+            //            );
+
+            //        var query = db.Employees.Where(p => p.City.Length >= 8);
+            //        foreach (var emp in query)
+            //        {
+            //            emp.Title += "[Transaction]";
+            //        }
+
+            //        db.SaveChanges();
+
+            //        dbContextTransaction.Commit();
+            //    }
+            //    catch (Exception)
+            //    {
+            //        dbContextTransaction.Rollback(); //Required according to MSDN article 
+            //        throw; //Not in MSDN article, but recommended so the exception still bubbles up
+            //    }
+            //}
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
